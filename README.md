@@ -8,6 +8,10 @@ Connected Healthcare Systems design system.
 
 | Path | What it is |
 | --- | --- |
+| `Staff Schedule.dc.html` | The screen itself — week, day, leave-calendar and on-call views, desktop and mobile. The design to implement. |
+| `Schedule Overview.dc.html` | Canvas that lays the screen out at four mobile sizes plus desktop. Imports `Staff Schedule`; start here to see the whole thing. |
+| `assets/` | CHS logo (full colour and mark). |
+| `uploads/` | Reference images pasted into the design session. |
 | `_ds/connected-healthcare-systems-design-syst-914962cd-.../` | The CHS design system — tokens, component bundle, manifest and readme. Vendored, not hand-edited. |
 | `support.js` | The Claude Design Component runtime (`dc-runtime`). Generated; do not edit. |
 
@@ -19,9 +23,10 @@ Connected Healthcare Systems design system.
 The screens come from the Claude Design project
 [Staff Schedule](https://claude.ai/design/p/6e3db676-c402-4c31-8c31-b6775fcce92b).
 
-`Schedule Overview.dc.html` is the first screen to be implemented. It is **not yet in this repo** —
-pulling it needs an authorised Claude Design session (`/design-login` in Claude Code, then the
-`claude_design` MCP can read the project).
+Open `Schedule Overview.dc.html` first — it frames `Staff Schedule.dc.html` in the four mobile
+views (`week`, `day`, `month`, `oncall`) and the 1440×900 desktop view, which is the fastest way to
+see what each view is meant to do. `Staff Schedule.dc.html` takes `force-mobile` and `initial-view`
+attributes; that is how the overview drives it.
 
 ## Conventions
 

@@ -53,6 +53,10 @@ The 2014 guidelines are a print brand book — they define no UI inventory, so t
 
 New Zealand, not US — **all printable documents in this system (letterhead, guides, reports) use A4**, never Letter. Use the `doc-page` starter with `size="a4"`, or A4 proportions (595×842pt / 210×297mm) for any hand-built page. `ui_kits/stationery/Stationery.jsx`'s `Letterhead` and `skills/accessory-guide.md`'s accessory guide both follow this.
 
+### Document text alignment
+
+Running body copy in any printable document (Word, PDF, letterhead, guide, report, proposal) is **justified** — `text-align:justify` with `text-wrap:pretty` and `hyphens:auto` to avoid rivers and loose lines. Left-align everything that isn't running copy: headings, overlines, captions, table cells, list labels, badges, contact blocks and cover text. On-screen UI (the website kit, components) stays left-aligned throughout — justification is a print convention only.
+
 ---
 
 ## CONTENT FUNDAMENTALS
