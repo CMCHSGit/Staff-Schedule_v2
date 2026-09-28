@@ -8,6 +8,8 @@ Connected Healthcare Systems design system.
 
 | Path | What it is |
 | --- | --- |
+| `index.html` | The published site's entry point. A thin host that imports `Staff Schedule` full-bleed; it passes no `forceMobile`, so the screen picks its own layout. |
+| `.nojekyll` | Stops GitHub Pages running Jekyll, which would otherwise drop `_ds/` for starting with an underscore. |
 | `Staff Schedule.dc.html` | The screen itself — week, day, leave-calendar and on-call views, desktop and mobile. The design to implement. |
 | `Schedule Overview.dc.html` | Canvas that lays the screen out at four mobile sizes plus desktop. Imports `Staff Schedule`; start here to see the whole thing. |
 | `assets/` | CHS logo (full colour and mark). |
@@ -17,6 +19,26 @@ Connected Healthcare Systems design system.
 
 `_ds/.../readme.md` is the reference for brand voice, colour, type and the component inventory
 (Button, Card, Badge, Field, Tabs, Alert, Dialog and the rest). Read it before adding UI.
+
+## Published site
+
+<https://cmchsgit.github.io/Staff-Schedule_v2/>
+
+One page serves both form factors. `Staff Schedule.dc.html` measures its own root with a
+`ResizeObserver` and treats itself as narrow below **760px**:
+
+```js
+const narrow = !!this.props.forceMobile || s.width < 760;
+```
+
+Above 760px you get the week sheet with view tabs in the header and the full-colour logo; below it
+you get the logo mark, day pills, a single-day column and the bottom tab bar. `forceMobile` only
+exists so `Schedule Overview.dc.html` can show the mobile layout inside a desktop-sized canvas —
+the site never sets it.
+
+Pages serves from `main` at the repo root. The runtime pulls React 18.3.1, ReactDOM and Babel
+standalone from unpkg at load, so the site needs network access to unpkg; everything else is
+served from this repo.
 
 ## Design source
 
